@@ -1,9 +1,9 @@
 <template name="BoardShow">
   <div class='col-lg-12'>
-    {{#autoForm id="afUpdateBoardForm" doc=this class='form-horizontal' type="update" collection=Collections.Board autosaveOnKeyup=true}}
+    {{#autoForm id="afUpdateBoardForm" doc=this class='form-horizontal' type="update" collection=Collections.Board}}
       <fieldset>
         <div class='col-lg-12'>
-          <div class="form-group col-lg-6 {{#if afFieldIsInvalid name='title'}}has-error{{/if}}">
+          <div class="form-group col-lg-12 {{#if afFieldIsInvalid name='title'}}has-error{{/if}}">
             <label class="control-label ">{{afFieldLabelText name='title'}}</label>
             {{> afFieldInput name='title'}}
             {{#if afFieldIsInvalid name='title'}}
@@ -13,14 +13,8 @@
         </div>
 
         <div class='col-lg-12'>
-          <div class="form-group col-lg-6 {{#if afFieldIsInvalid name='description'}}has-error{{/if}}">
-            {{> afQuickField name='description' class='boardDescription' rows=6}}
-          </div>
-        </div>
-
-        <div class='col-lg-12'>
-          <div class="form-group col-lg-6">
-            <button type="submit" class="btn btn-primary">Update</button>
+          <div class="form-group col-lg-12 {{#if afFieldIsInvalid name='description'}}has-error{{/if}}">
+            {{> afQuickField name='description' class='boardDescription' rows=27 id=_id}}
           </div>
         </div>
       </fieldset>

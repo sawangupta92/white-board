@@ -7,6 +7,7 @@ BoardShowController = RouteController.extend({
   
   subscriptions: function() {
     this.subscribe('show-board', this.params._id);
+    // this.subscribe('update-board-data', this.params._id);
   },
   
   // Subscriptions or other things we want to "wait" on. This also

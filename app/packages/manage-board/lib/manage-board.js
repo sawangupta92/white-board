@@ -11,5 +11,15 @@ Board.attachSchema(new SimpleSchema({
   },
   description: {
     type: String
+  },
+  'changes.$': {
+    type: Object,
+    optional: true
+  },
+  'changes.$.position': {
+    type: Number
+  },
+  'changes.$.character': {
+    type: String
   }
 }));

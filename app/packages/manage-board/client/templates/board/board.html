@@ -1,8 +1,7 @@
 <template name="Board">
-  {{#each boards}}
-    <a href='boards/{{_id}}'>{{title}}</a><br>
-  {{/each}}
-  <div class="home">
-    <textarea></textarea>
+  <div class="list-group">
+    {{#each boards}}
+      <a href='boards/{{_id}}' class='list-group-item'>{{title}}</a>
+    {{/each}}
   </div>
 </template>
