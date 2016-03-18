@@ -25,6 +25,7 @@ BoardShowController = RouteController.extend({
   // return Posts.findOne({_id: this.params._id});
   
   data: function () {
+    // return this.params._id;
     return Board.findOne();
   },
   

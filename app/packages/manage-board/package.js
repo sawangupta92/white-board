@@ -39,7 +39,7 @@ Package.onUse(function (api) {
     'client');
   api.addFiles('server/manage-board.js', 'server');
 
-  api.export(['ManageBoard', 'BoardController', 'Board', 'BoardShowController']);
+  api.export(['ManageBoard', 'BoardController', 'Board', 'BoardShowController', 'clientBoard']);
 });
 
 Package.onTest(function (api) {

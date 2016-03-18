@@ -1,6 +1,6 @@
 <template name="BoardShow">
   <div class='col-lg-12'>
-    {{#autoForm id="afUpdateBoardForm" doc=this class='form-horizontal' type="update" collection=Collections.Board}}
+    {{#autoForm id="afUpdateBoardForm" doc=getclientBoard class='form-horizontal' type="update" collection=Collections.clientBoard}}
       <fieldset>
         <div class='col-lg-12'>
           <div class="form-group col-lg-12 {{#if afFieldIsInvalid name='title'}}has-error{{/if}}">
@@ -14,7 +14,7 @@
 
         <div class='col-lg-12'>
           <div class="form-group col-lg-12 {{#if afFieldIsInvalid name='description'}}has-error{{/if}}">
-            {{> afQuickField name='description' class='boardDescription' rows=27 id=_id}}
+            {{> afQuickField name='description' class='boardDescription' rows=27 id=this._id}}
           </div>
         </div>
       </fieldset>

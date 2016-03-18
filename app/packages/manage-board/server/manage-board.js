@@ -7,7 +7,7 @@ Meteor.publish('boards', function(){
 });
 
 Meteor.publish('show-board', function(id){
-  return Board.find({_id: id});
+  return Board.find({_id: id}, { fields: { changes: 1 } });
 });
 
 Meteor.publish('update-board-data', function(id){
@@ -28,6 +28,7 @@ Meteor.methods({
         }
       }
     )
+    return board.changes;
   },
   getBoard: function(id){
     return Board.findOne({_id: id});
