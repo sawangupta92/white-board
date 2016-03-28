@@ -1,18 +1,33 @@
+String.prototype.splice = function(idx, rem, str) {
+  return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
+};
+
 var Collections = {};
 
 Meteor.isClient && Template.registerHelper("Collections", Collections);
 
-Board = Collections.Board = new Mongo.Collection('boards');
-
-console.log(SimpleSchema.options)
+Board = Collections.Board = new Mongo.Collection('boards', {
+  transform: function(doc) {
+    doc.setDescription = function(position, start_position, character) {
+      if(doc.description == undefined){
+        return character
+      } else {
+        return doc.description.splice(position, start_position, character)
+      }
+    }
+    return doc;
+  }
+});
 
 Board.attachSchema(new SimpleSchema({
   title: {
     type: String,
-    max: 50
+    max: 50,
+    optional: true
   },
   description: {
-    type: String
+    type: String,
+    optional: true
   },
   'changes.$': {
     type: Object,
@@ -22,11 +37,21 @@ Board.attachSchema(new SimpleSchema({
     type: Number
   },
   'changes.$.character': {
-    type: String
+    type: String,
+    optional: true,
+    trim: false
   }
-}, {
-  trimStrings: false
-}));
+}
+));
+
+// Board.
+
+Board.allow({
+  insert: function () {
+    console.log(8932048902384)
+    return true;
+  }
+});
 
 if(Meteor.isClient){
   clientBoard = Collections.clientBoard = new Mongo.Collection('clientBoards');
@@ -48,7 +73,8 @@ if(Meteor.isClient){
     },
     'changes.$.character': {
       type: String,
-      optional: true
+      optional: true,
+      trim: false
     }
   }));
 

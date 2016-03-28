@@ -15,3 +15,9 @@ Router.route('/boards/:_id', {
   controller: 'BoardShowController',
   where: 'client'
 });
+
+Router.route('/boards/new', {
+  name: 'boardCreate',
+  controller: 'BoardCreateController',
+  where: 'client'
+});

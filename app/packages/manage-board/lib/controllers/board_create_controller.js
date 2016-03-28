@@ -1,4 +1,4 @@
-BoardShowController = RouteController.extend({
+BoardCreateController = RouteController.extend({
   
   // A place to put your subscriptions
   // this.subscribe('items');
@@ -6,8 +6,6 @@ BoardShowController = RouteController.extend({
   // this.subscribe('item', this.params._id).wait();
   
   subscriptions: function() {
-    this.subscribe('show-board', this.params._id);
-    // this.subscribe('update-board-data', this.params._id);
   },
   
   // Subscriptions or other things we want to "wait" on. This also
@@ -26,7 +24,7 @@ BoardShowController = RouteController.extend({
   
   data: function () {
     // return this.params._id;
-    return Board.findOne({_id: this.params._id});
+    // return Board.findOne();
   },
   
   // You can provide any of the hook options
@@ -38,7 +36,10 @@ BoardShowController = RouteController.extend({
     this.next();
   },
   onBeforeAction: function () {
-    this.next();
+    console.log('fjdskofndksfjn');
+    board = Board.createBoard();
+    this.redirect('board/' + board._id)
+    // this.next();
   },
   
   // The same thing as providing a function as the second parameter. You can
@@ -50,6 +51,7 @@ BoardShowController = RouteController.extend({
   //  action: 'myActionFunction'
   
   action: function () {
+    console.log('fjdskofndksfjn');
     this.render();
   },
   onAfterAction: function () {

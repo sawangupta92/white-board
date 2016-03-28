@@ -27,6 +27,7 @@ Package.onUse(function (api) {
     'lib/routes.js',
     'lib/controllers/board_controller.js',
     'lib/controllers/board_show_controller.js',
+    'lib/controllers/board_create_controller.js',
     ],
     ['client', 'server']);
   api.addFiles([
@@ -39,7 +40,7 @@ Package.onUse(function (api) {
     'client');
   api.addFiles('server/manage-board.js', 'server');
 
-  api.export(['ManageBoard', 'BoardController', 'Board', 'BoardShowController', 'clientBoard']);
+  api.export(['ManageBoard', 'BoardController', 'Board', 'BoardShowController', 'clientBoard', 'BoardCreateController']);
 });
 
 Package.onTest(function (api) {

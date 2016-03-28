@@ -1,4 +1,25 @@
 <template name="Board">
+  <div class='row'>
+    <div class='col-lg-12'>
+      {{#autoForm id="afInsertBoard" class='form-horizontal' type="insert" collection=Collections.Board}}
+        <fieldset>
+          <div class='col-lg-12'>
+            <div class="form-group col-lg-12 {{#if afFieldIsInvalid name='title'}}has-error{{/if}}">
+              <label class="control-label ">{{afFieldLabelText name='title'}}</label>
+              {{> afFieldInput name='title'}}
+              {{#if afFieldIsInvalid name='title'}}
+              <span class="help-block">{{{afFieldMessage name='title'}}}</span>
+              {{/if}}
+            </div>
+          </div>
+          <div>
+            <button type="submit" class="btn btn-primary">Insert</button>
+          </div>
+        </fieldset>
+      {{/autoForm}}
+    </div>
+  </div>
+
   <div class="list-group">
     {{#each boards}}
       <a href='boards/{{_id}}' class='list-group-item'>{{title}}</a>
