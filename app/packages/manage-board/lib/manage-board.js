@@ -19,30 +19,31 @@ Board = Collections.Board = new Mongo.Collection('boards', {
   }
 });
 
-Board.attachSchema(new SimpleSchema({
-  title: {
-    type: String,
-    max: 50,
-    optional: true
-  },
-  description: {
-    type: String,
-    optional: true
-  },
-  'changes.$': {
-    type: Object,
-    optional: true
-  },
-  'changes.$.position': {
-    type: Number
-  },
-  'changes.$.character': {
-    type: String,
-    optional: true,
-    trim: false
-  }
-}
-));
+// Board.attachSchema(new SimpleSchema({
+//   title: {
+//     type: String,
+//     max: 50,
+//     optional: true,
+//     trim: false
+//   },
+//   description: {
+//     type: String,
+//     optional: true
+//   },
+//   'changes.$': {
+//     type: Object,
+//     optional: true
+//   },
+//   'changes.$.position': {
+//     type: Number
+//   },
+//   'changes.$.character': {
+//     type: String,
+//     optional: true,
+//     trim: false
+//   }
+// }
+// ));
 
 // Board.
 
@@ -59,7 +60,8 @@ if(Meteor.isClient){
   clientBoard.attachSchema(new SimpleSchema({
     title: {
       type: String,
-      max: 50
+      max: 50,
+      trim: false
     },
     description: {
       type: String

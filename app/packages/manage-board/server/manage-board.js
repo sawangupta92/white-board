@@ -14,16 +14,17 @@ Meteor.methods({
   createBoard: function(){
     Board.insert({ title: 'new' })
   },
-  storeText: function(position, character, id, keyCode){
+  storeText: function(position, character, id, keyCode, remainder){
     var board = Board.findOne({_id: id});
+    console.log(board.setDescription(position, remainder, character))
     Board.update(
       { _id: id },
       {
         $set: {
-          description: board.setDescription(position, 0, character)
+          description: board.setDescription(position, remainder, character)
         },
         $push: {
-          changes: { position: position, character: keyCode }
+          changes: { position: position, character: keyCode, remainder: remainder }
         }
       }
     )
