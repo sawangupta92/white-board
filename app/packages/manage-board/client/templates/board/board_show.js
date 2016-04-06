@@ -52,6 +52,10 @@ Template.BoardShow.onRendered(function(){
       }
       res.check = true
     })
-  })
+  }),
+
+  document.addEventListener('paste', function (ev) {
+    console.log(ev.clipboardData.getData('text/plain'));
+  });
 
 });

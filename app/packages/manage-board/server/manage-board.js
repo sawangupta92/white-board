@@ -16,7 +16,6 @@ Meteor.methods({
   },
   storeText: function(position, character, id, keyCode, remainder){
     var board = Board.findOne({_id: id});
-    console.log(board.setDescription(position, remainder, character))
     Board.update(
       { _id: id },
       {
