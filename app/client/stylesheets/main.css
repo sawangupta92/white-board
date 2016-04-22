@@ -3,3 +3,8 @@
 /*****************************************************************************/
 .main {
 }
+.msg-history {
+  max-height: 620px;
+  overflow: scroll;
+  margin-bottom: 15px;
+}

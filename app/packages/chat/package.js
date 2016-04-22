@@ -5,6 +5,10 @@ Package.describe({
   git: "https://github.com/<username>/chat.git",
 });
 
+Npm.depends({
+  'emojify.js': '1.1.0'
+})
+
 Package.onUse(function (api) {
   api.versionsFrom('0.9.0');
 
@@ -16,7 +20,8 @@ Package.onUse(function (api) {
     'mongo',
     'aldeed:simple-schema',
     'aldeed:collection2',
-    'blaze-html-templates'
+    'blaze-html-templates',
+    'matb33:collection-hooks',
   ];
 
   api.use(packages);
@@ -34,8 +39,9 @@ Package.onUse(function (api) {
     ],
     'client');
   api.addFiles('server/chat.js', 'server');
+  api.addAssets('client/images/basic/smile.png', 'client');
 
-  api.export(['Chat', 'ChatController']);
+  api.export(['Chat', 'ChatController', 'Emojify', 'Test']);
 });
 
 Package.onTest(function (api) {

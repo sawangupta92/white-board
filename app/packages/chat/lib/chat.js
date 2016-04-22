@@ -11,6 +11,14 @@ Chat.attachSchema(new SimpleSchema({
   secondUser: {
     type: String
   },
+  firstUserUnreadCount: {
+    type: Number,
+    defaultValue: 0
+  },
+  secondUserUnreadCount: {
+    type: Number,
+    defaultValue: 0
+  },
   'history.$': {
     type: Object,
     optional: true
